@@ -145,8 +145,9 @@ function processProduct(/* CODE HERE */num1, num2, callback) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+function processContains(item, list, callback) {
+  
+  return callback(list.includes(item))
 }
 
 /**
@@ -190,9 +191,14 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
+function getFullNames(/* CODE HERE */runners) {
   /* CODE HERE */
-}
+  let fullName = [];
+  runners.forEach(function(runners) {
+    fullName.push(`${runners.last_name}, ${runners.first_name}`)});
+    return fullName;
+  }
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -206,8 +212,12 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
+function firstNamesAllCaps(/* CODE HERE */runners) {
   /* CODE HERE */
+  let runnerName = runners.map(function(items) {
+    return items.first_name.toUpperCase();
+  });
+  return runnerName;
 }
 
 /**
@@ -223,9 +233,12 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
+function getRunnersByTShirtSize(/* CODE HERE */runners, tShirtSize) {
   /* CODE HERE */
-}
+const newRunners = runners.filter(function(item){
+  return item.shirt_size == tShirtSize;
+})
+return newRunners;}
 
 /**
  * ### Challenge `tallyUpDonations`
