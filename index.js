@@ -101,6 +101,8 @@ function processSum(/* CODE HERE */ numberList, callback) {
     return callback(sum);
   }
 }
+// the 0 is the starting value 
+
 
 /**
  * ### Challenge `processProduct`
@@ -250,8 +252,13 @@ return newRunners;}
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
+function tallyUpDonations(/* CODE HERE */runners) {
   /* CODE HERE */
+  // let sum runners.reduce()
+  // return sum
+return runners.reduce((total, runner) => {
+  return total += runner.donation;
+},0)
 }
 
 /////////////// CLOSURES ///////////////
@@ -272,12 +279,15 @@ function tallyUpDonations(/* CODE HERE */) {
 */
 function counterMaker() {
   // BROKEN CODE STARTS
-  const count = 0;
+  let count = 0;
   function counter() {
-    ++count
+    return count++
   }
   // BROKEN CODE ENDS
+  return counter
 }
+
+//++count returns count before increments and count++ after increment
 
 /**
  * ### Challenge `counterMakerWithLimit`
@@ -299,9 +309,20 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
+function counterMakerWithLimit(/* CODE HERE */limit) {
   /* CODE HERE */
+  let count = 0
+  function counter(){
+    if(count > limit) {
+      count = 0
+    }
+    return count++ 
+   }
+    return counter
 }
+
+// === makes sure it is exactly the same, which might not be the case with ==
+
 
 /////////////// END OF CHALLENGE ///////////////
 /////////////// END OF CHALLENGE ///////////////
